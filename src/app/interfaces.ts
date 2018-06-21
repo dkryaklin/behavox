@@ -1,4 +1,5 @@
 export interface Email {
+  id: number;
   from: string;
   to: string[];
   cc: string[];
