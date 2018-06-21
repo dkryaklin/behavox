@@ -1,0 +1,7 @@
+.emails-list {
+  flex-grow: 1;
+  max-width: 400px;
+  background-color: #ff0000;
+  height: 100%;
+  overflow-y: auto;
+}
