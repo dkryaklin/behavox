@@ -12,3 +12,8 @@ export interface Email {
 export interface AppStore {
   emails: Email[];
 }
+
+export interface Pagination {
+  page: number;
+  amount: number;
+}
