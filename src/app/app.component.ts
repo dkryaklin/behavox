@@ -3,13 +3,16 @@ import { Store } from '@ngrx/store';
 import { EmailsService } from './emails.service';
 import { Email, AppStore } from './interfaces';
 import finity from 'finity-js';
+import clssnms from 'clssnms';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
+  classNames = clssnms('app-container');
+
   constructor(
     private emailsService: EmailsService,
     private store: Store<AppStore>,

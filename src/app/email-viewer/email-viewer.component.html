@@ -1,3 +1,10 @@
-<p>
-  {{ selectedEmailString }}
-</p>
+<div class="{{classNames()}}" *ngIf="selectedEmail">
+  <div class="{{classNames('header')}}">
+    <div class="{{classNames('subject')}}">{{ selectedEmail.subject || 'Empty subject' }}</div>
+    <div class="{{classNames('info')}}">
+      <div class="{{classNames('people')}}">{{ selectedEmail.from }} to {{ selectedEmail.to.join(', ') }}</div>
+      <div class="{{classNames('date')}}">{{ selectedEmail.date }}</div>
+    </div>
+  </div>
+  <app-message [messages]="messages" [messageDeepIndex]="0"></app-message>
+</div>

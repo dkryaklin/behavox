@@ -1,0 +1,18 @@
+<div>
+  <div *ngFor="let row of messages[messageDeepIndex].split('\n')">
+    <div class="row">{{ row }}</div>
+  </div>
+  <mat-expansion-panel
+    [expanded]="expanded"
+    (opened)="expanded = true"
+    (closed)="expanded = false"
+    *ngIf="messages[messageDeepIndex + 1]"
+  >
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Original message
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <app-message [messages]="messages" [messageDeepIndex]="messageDeepIndex + 1"></app-message>
+  </mat-expansion-panel>
+</div>

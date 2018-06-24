@@ -1,23 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { Store, select } from '@ngrx/store';
+import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { AppStore, Email } from '../interfaces';
-import { Observable } from 'rxjs';
+import clssnms from 'clssnms';
 
 @Component({
   selector: 'app-email-viewer',
   templateUrl: './email-viewer.component.html',
-  styleUrls: ['./email-viewer.component.css']
+  styleUrls: ['./email-viewer.component.scss'],
 })
-export class EmailViewerComponent implements OnInit {
-  selectedEmail: Observable<Email>;
-  selectedEmailString: string;
+export class EmailViewerComponent {
+  selectedEmail: Email;
+  messages: string[];
+  messageDeepIndex = 0;
+
+  classNames = clssnms('email-viewer');
 
   constructor(private store: Store<AppStore>) {
-    this.selectedEmail = store.pipe(select('selectedEmail'));
-    this.selectedEmail.subscribe((email: Email) => this.selectedEmailString = JSON.stringify(email));
+    store.select('selectedEmail').subscribe((selectedEmail: Email) => {
+      if (selectedEmail) {
+        this.selectedEmail = selectedEmail;
+        this.messages = selectedEmail.body.split('-----Original Message-----');
+      }
+    });
   }
-
-  ngOnInit() {
-  }
-
 }

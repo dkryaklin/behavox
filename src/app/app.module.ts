@@ -5,6 +5,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { HttpClientModule } from '@angular/common/http';
 
 import { NgModule } from '@angular/core';
@@ -16,17 +17,19 @@ import { paginationReducer } from './reducers/pagination';
 import { AppComponent } from './app.component';
 import { EmailsListComponent } from './emails-list/emails-list.component';
 import { EmailViewerComponent } from './email-viewer/email-viewer.component';
+import { MessageComponent } from './message/message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EmailsListComponent,
-    EmailViewerComponent
+    EmailViewerComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, MatButtonModule,
     MatCheckboxModule, MatToolbarModule, MatSlideToggleModule,
-    MatTabsModule, HttpClientModule, MatIconModule,
+    MatTabsModule, HttpClientModule, MatIconModule, MatExpansionModule,
     StoreModule.forRoot({
       emails: emailsReducer,
       selectedEmail: selectedEmailReducer,
