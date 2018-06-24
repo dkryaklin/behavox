@@ -1,6 +1,6 @@
 <div>
-  <div *ngFor="let row of messages[messageDeepIndex].message.split('\n')">
-    <div class="row">{{ row }}</div>
+  <div class="row" *ngFor="let row of handledMessage">
+    <span class="{{spanRow.class}}" *ngFor="let spanRow of row">{{spanRow.text}}</span>
   </div>
   <mat-expansion-panel
     [expanded]="expanded"
@@ -13,6 +13,6 @@
           {{ messages[messageDeepIndex + 1].title }}
       </mat-panel-title>
     </mat-expansion-panel-header>
-    <app-message [messages]="messages" [messageDeepIndex]="messageDeepIndex + 1"></app-message>
+    <app-message [messages]="messages" [filter]="filter" [messageDeepIndex]="messageDeepIndex + 1"></app-message>
   </mat-expansion-panel>
 </div>

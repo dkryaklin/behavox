@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
       let data = rawData;
       if (filter.text) {
         data = rawData.filter((item) => {
-          return JSON.stringify(item).indexOf(filter.text) !== -1;
+          return JSON.stringify(item).toLowerCase().indexOf(filter.text.toLowerCase()) !== -1;
         });
       }
 

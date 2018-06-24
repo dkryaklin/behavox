@@ -16,6 +16,7 @@ export class FilterComponent {
   filterChips: string[];
   userEmails: string[];
   filteredUserEmails: Observable<string[]>;
+  openedAutocomplete = false;
 
   classNames = clssnms('filter');
   separatorKeysCodes = [ENTER, COMMA];

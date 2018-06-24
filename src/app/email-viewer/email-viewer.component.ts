@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppStore, Email, Message } from '../interfaces';
+import { AppStore, Email, Message, Filter } from '../interfaces';
 import clssnms from 'clssnms';
 
 @Component({
@@ -12,10 +12,13 @@ export class EmailViewerComponent {
   selectedEmail: Email;
   messages: Message[];
   messageDeepIndex = 0;
+  filter: Filter;
 
   classNames = clssnms('email-viewer');
 
   constructor(private store: Store<AppStore>) {
+    store.select('filter').subscribe((filter: Filter) => this.filter = filter);
+
     store.select('selectedEmail').subscribe((selectedEmail: Email) => {
       if (selectedEmail) {
         this.selectedEmail = selectedEmail;
