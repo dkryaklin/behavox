@@ -28,6 +28,9 @@ export class EmailViewerComponent {
           const message: Message = {title: messages[i].replace(/-/g, '').trim(), message: messages[i + 1]};
           this.messages.push(message);
         }
+      } else {
+        this.selectedEmail = null;
+        this.messages = [];
       }
     });
   }

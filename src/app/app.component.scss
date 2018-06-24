@@ -8,9 +8,11 @@
   flex-direction: column;
 
   &__header {
-    height: 50px;
+    padding-top: 25px;
+    height: 70px;
     flex-shrink: 0;
     border-bottom: 1px solid rgb(237, 239, 241);
+    overflow: hidden;
   }
 
   &__content {

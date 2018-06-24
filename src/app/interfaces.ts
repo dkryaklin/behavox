@@ -9,6 +9,11 @@ export interface Email {
   date: Date;
 }
 
+export interface Filter {
+  text?: string;
+  date?: Date;
+}
+
 export interface Message {
   title?: string;
   message: string;

@@ -1,8 +1,10 @@
 <div class="{{classNames()}}">
-  <mat-select placeholder="Pages" [value]="selectedPage" (selectionChange)="changePage($event.value)">
-    <mat-option *ngFor="let page of pages" [value]="page.id">
-      {{ page.label }}
-    </mat-option>
-  </mat-select>
+  <mat-form-field>
+    <mat-select placeholder="Pages" [value]="selectedPage" (selectionChange)="changePage($event.value)">
+      <mat-option *ngFor="let page of pages" [value]="page.id">
+        {{ page.label }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 </div>
 
