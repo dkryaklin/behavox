@@ -5,6 +5,17 @@
   top: 0;
   bottom: 0;
   display: flex;
+  flex-direction: column;
+
+  &__header {
+    height: 50px;
+    flex-shrink: 0;
+    border-bottom: 1px solid rgb(237, 239, 241);
+  }
+
+  &__content {
+    display: flex;
+  }
 
   &__list {
     flex-grow: 1;
@@ -14,5 +25,6 @@
   &__viewer {
     flex-grow: 1;
     position: relative;
+    overflow: hidden;
   }
 }

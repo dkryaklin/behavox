@@ -29,8 +29,8 @@ export class EmailsListComponent {
 
       const startIndex = pagination.page * pagination.amount;
       let endIndex = startIndex + pagination.amount;
-      if (endIndex >= emails.length - 1) {
-        endIndex = emails.length - 1;
+      if (endIndex >= emails.length) {
+        endIndex = emails.length;
       }
       for (let i = startIndex; i < endIndex; i++) {
         results.push(emails[i]);

@@ -2,8 +2,8 @@ import { Pagination } from '../interfaces';
 
 interface Action {
   type: string;
-  page: number | undefined;
-  amount: number | undefined;
+  page?: number;
+  amount?: number;
 }
 
 export function paginationReducer(state: Pagination = { page: 0, amount: 20 }, action: Action) {

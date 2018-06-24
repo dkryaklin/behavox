@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppStore, Email } from '../interfaces';
+import { AppStore, Email, Message } from '../interfaces';
 import clssnms from 'clssnms';
 
 @Component({
@@ -10,7 +10,7 @@ import clssnms from 'clssnms';
 })
 export class EmailViewerComponent {
   selectedEmail: Email;
-  messages: string[];
+  messages: Message[];
   messageDeepIndex = 0;
 
   classNames = clssnms('email-viewer');
@@ -19,7 +19,15 @@ export class EmailViewerComponent {
     store.select('selectedEmail').subscribe((selectedEmail: Email) => {
       if (selectedEmail) {
         this.selectedEmail = selectedEmail;
-        this.messages = selectedEmail.body.split('-----Original Message-----');
+        const messages = selectedEmail.body
+          .split(/(---------------------- .+ ---------------------------|-----Original Message-----)/g);
+
+        this.messages = [{message: messages[0]}];
+
+        for (let i = 1; i < messages.length; i = i + 2) {
+          const message: Message = {title: messages[i].replace(/-/g, '').trim(), message: messages[i + 1]};
+          this.messages.push(message);
+        }
       }
     });
   }

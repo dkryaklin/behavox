@@ -11,7 +11,7 @@
       <div class="{{classNames('item-title')}}">{{ email.subject || 'Empty subject' }}</div>
       <div class="{{classNames('item-text')}}">
         <div class="{{classNames('item-people')}}">{{ email.from }} to {{ email.to.join(', ') }}</div>
-        <div class="{{classNames('item-date')}}">{{ email.date }}</div>
+        <div class="{{classNames('item-date')}}">{{ email.date.toDateString() }}</div>
       </div>
     </div>
   </div>

@@ -9,6 +9,11 @@ export interface Email {
   date: Date;
 }
 
+export interface Message {
+  title?: string;
+  message: string;
+}
+
 export interface AppStore {
   emails: Email[];
 }
@@ -16,4 +21,9 @@ export interface AppStore {
 export interface Pagination {
   page: number;
   amount: number;
+}
+
+export interface Page {
+  id: number;
+  label: string;
 }
