@@ -35,6 +35,7 @@ export class PaginationComponent {
         page.label = `${startIndex} - ${endIndex} / Page ${i + 1}`;
 
         this.pages.push(page);
+        this.selectedPage = pagination.page;
       }
     });
   }
