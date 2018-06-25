@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { EmailsService } from './emails.service';
 import { Email, AppStore, Filter } from './interfaces';
-import finity from 'finity-js';
+import * as moment from 'moment';
 import clssnms from 'clssnms';
 
 @Component({
@@ -37,7 +37,8 @@ export class AppComponent implements OnInit {
       }
 
       const emails: Email[] = data.map((email, id) => {
-        return { ...email, id, date: finity.parse(email.date) };
+        const momentDate = moment(email.date);
+        return { ...email, id, date: momentDate.toDate(), formattedDate: momentDate.format('DD MMM YYYY hh:mm A') };
       });
 
       emails.sort((a, b) => {

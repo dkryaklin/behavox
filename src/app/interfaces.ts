@@ -7,6 +7,7 @@ export interface Email {
   subject: string;
   body: string;
   date: Date;
+  formattedDate: string;
 }
 
 export interface Filter {
